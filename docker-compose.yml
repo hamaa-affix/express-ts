@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: app
+    build: ./docker/node
+    tty: true
+    volumes:
+      - .:/app/
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: express
+      MYSQL_USER: express
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    container_name: mysql
+    volumes:
+      - express-db:/var/lib/mysql
+      - ./docker/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
+
+volumes:
+  express-db:
