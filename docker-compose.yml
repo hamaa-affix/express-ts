@@ -7,7 +7,9 @@ services:
     tty: true
     volumes:
       - .:/app/
-
+    ports:
+      - "3000:3000"
+    #command: yarn nodemon
   mysql:
     image: mysql:8.0
     ports:
