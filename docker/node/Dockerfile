@@ -11,5 +11,3 @@ RUN rm -rf /var/cache/apk/*
 
 COPY ./package* ./
 COPY ./yarn* ./
-
-EXPOSE 3000
