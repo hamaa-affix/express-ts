@@ -9,6 +9,7 @@ services:
       - .:/app/
     ports:
       - "3000:3000"
+    command: ["yarn", "nodemon"]
     #command: yarn nodemon
   mysql:
     image: mysql:8.0
